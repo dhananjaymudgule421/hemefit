@@ -1,0 +1,3 @@
+opencv-python-headless
+mediapipe
+libgl1-mesa-glx
