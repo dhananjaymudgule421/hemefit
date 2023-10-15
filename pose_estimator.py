@@ -88,7 +88,7 @@ def get_combined(selected_video_path, selected_keypoints_path):
     pose = mp_pose.Pose()
     mp_drawing = mp.solutions.drawing_utils
 
-    cap = cv2.VideoCapture()
+    cap = cv2.VideoCapture(0)
     # prerecorded_video_path = 'ref_1.mp4'
     prerecorded_video = cv2.VideoCapture(selected_video_path)
 
