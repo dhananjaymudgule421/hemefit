@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import numpy as np
 import pandas as pd
-from BODY_pose_detector import *
+from TEST_pose_detector import *
 from utils import *
 
 # Constants
@@ -64,6 +64,8 @@ def display_video_analysis():
     if start_video:
         if selected_video_path:
             video_frame = st.empty()
+            angles_data = dict()
+            distances_data = dict()
             for frame_video,angles_data, distances_data in video_pose_tracking(selected_joints,selected_distances, selected_video_path):
                 
                 video_frame.image(frame_video, use_column_width=True)
@@ -96,6 +98,8 @@ def display_live_analysis():
 
     if start_pose_matching:
         webcam_frame = st.empty()
+        angles_data = dict()
+        distances_data = dict()
         for frame_webcam,angles_data, distances_data in live_pose_tracking(reps_joint,selected_joints,selected_distances,duration,min_angle, max_angle,upper_threshold,lower_threshold,):
             webcam_frame.image(frame_webcam, use_column_width=True) 
 
@@ -114,8 +118,6 @@ st.sidebar.header("`Contol Panel`")
 
 # Sidebar setup
 page = st.sidebar.radio("Choose an Action", ["Video Analysis", "Live Analysis"])
-st.sidebar.write("Choose `JOINTS_ANGLES` for Analysis")
-st.sidebar.subheader("Select JOINTS_ANGLES")
 
 # Fetch video files
 video_files = get_video_files()
