@@ -2,7 +2,7 @@ import streamlit as st
 import os
 import numpy as np
 import pandas as pd
-from TEST_pose_detector import *
+from BODY_pose_detector import *
 from utils import *
 
 # Constants
